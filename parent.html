@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Baby Surrogate - Parent</title>
+    <title>Baby Surrogate - Parent Information</title>
     <link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
@@ -21,23 +21,97 @@
         <a href="surrogate.html">Surrogate</a>
     </div>
 
-    <!-- Parent Content -->
-    <div class="content">
-        <h2>Parent</h2>
-        <img src="images/parent-image.jpg" alt="Parent Image">
-        <p>Information for prospective parents seeking surrogate services.</p>
-        <div class="input-container">
-            <label for="parent-name">Name:</label>
-            <input type="text" id="parent-name" name="parent-name" placeholder="Enter your name">
-            
-            <label for="parent-email">Email:</label>
-            <input type="email" id="parent-email" name="parent-email" placeholder="Enter your email">
-            
-            <label for="parent-message">Message:</label>
-            <textarea id="parent-message" name="parent-message" rows="4" placeholder="Your message"></textarea>
+        <!-- Parent Information Form -->
+        <div class="content">
+            <h2>Parent Information Form</h2>
+            <form action="/submit_parent" method="post">
+                <!-- Country of Residence -->
+                <label for="country">Country of Residence:</label>
+                <select id="country" name="country">
+                    <option value="USA">USA</option>
+                    <option value="Canada">Canada</option>
+                    <option value="UK">UK</option>
+                    <option value="Australia">Australia</option>
+                    <!-- Add more countries as needed -->
+                </select>
+                <br><br>
+    
+                <!-- Parent 1 Details -->
+                <fieldset>
+                    <legend>Parent 1 Details</legend>
+                    <label for="parent1-firstname">First Name:</label>
+                    <input type="text" id="parent1-firstname" name="parent1-firstname" required>
+                    <br><br>
+                    <label for="parent1-lastname">Last Name:</label>
+                    <input type="text" id="parent1-lastname" name="parent1-lastname" required>
+                    <br><br>
+                    <label for="parent1-gender">Gender:</label>
+                    <select id="parent1-gender" name="parent1-gender">
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Other">Other</option>
+                    </select>
+                    <br><br>
+                    <label for="parent1-citizenship">Citizenship:</label>
+                    <input type="text" id="parent1-citizenship" name="parent1-citizenship" required>
+                    <br><br>
+                    <label for="parent1-birthdate">Birthdate:</label>
+                    <input type="date" id="parent1-birthdate" name="parent1-birthdate" required>
+                </fieldset>
+                <br>
+    
+                <!-- Parent 2 Details -->
+                <fieldset>
+                    <legend>Parent 2 Details</legend>
+                    <label for="parent2-firstname">First Name:</label>
+                    <input type="text" id="parent2-firstname" name="parent2-firstname">
+                    <br><br>
+                    <label for="parent2-lastname">Last Name:</label>
+                    <input type="text" id="parent2-lastname" name="parent2-lastname">
+                    <br><br>
+                    <label for="parent2-gender">Gender:</label>
+                    <select id="parent2-gender" name="parent2-gender">
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Other">Other</option>
+                    </select>
+                    <br><br>
+                    <label for="parent2-citizenship">Citizenship:</label>
+                    <input type="text" id="parent2-citizenship" name="parent2-citizenship">
+                    <br><br>
+                    <label for="parent2-birthdate">Birthdate:</label>
+                    <input type="date" id="parent2-birthdate" name="parent2-birthdate">
+                </fieldset>
+                <br>
+    
+                <!-- Marriage Details -->
+                <label for="marriage-details">Marriage Details:</label>
+                <select id="marriage-details" name="marriage-details">
+                    <option value="Married">Married</option>
+                    <option value="Unmarried">Unmarried</option>
+                    <option value="Divorced">Divorced</option>
+                    <option value="Widowed">Widowed</option>
+                </select>
+                <br><br>
+    
+                <!-- Contact Information -->
+                <fieldset>
+                    <legend>Contact Information</legend>
+                    <label for="phone">Phone:</label>
+                    <input type="tel" id="phone" name="phone" required>
+                    <br><br>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                    <br><br>
+                    <label for="address">Address:</label>
+                    <textarea id="address" name="address" rows="3" required></textarea>
+                </fieldset>
+                <br>
+    
+                <input type="submit" value="Submit">
+            </form>
         </div>
-    </div>
-
-    <script src="scripts/script.js"></script>
-</body>
-</html>
+    
+    </body>
+    </html>
+    

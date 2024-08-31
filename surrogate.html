@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Baby Surrogate - Surrogate</title>
+    <title>Baby Surrogate - Surrogate Information</title>
     <link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
@@ -21,23 +21,119 @@
         <a href="surrogate.html">Surrogate</a>
     </div>
 
-    <!-- Surrogate Content -->
-    <div class="content">
-        <h2>Surrogate</h2>
-        <img src="images/surrogate-image.jpg" alt="Surrogate Image">
-        <p>Information for individuals interested in becoming a surrogate.</p>
-        <div class="input-container">
-            <label for="surrogate-name">Name:</label>
-            <input type="text" id="surrogate-name" name="surrogate-name" placeholder="Enter your name">
-            
-            <label for="surrogate-email">Email:</label>
-            <input type="email" id="surrogate-email" name="surrogate-email" placeholder="Enter your email">
-            
-            <label for="surrogate-message">Message:</label>
-            <textarea id="surrogate-message" name="surrogate-message" rows="4" placeholder="Your message"></textarea>
+        <!-- Surrogate Information Form -->
+        <div class="content">
+            <h2>Surrogate Information Form</h2>
+            <form action="/submit_surrogate" method="post">
+                <!-- Name -->
+                <label for="surrogate-name">Name:</label>
+                <input type="text" id="surrogate-name" name="surrogate-name" required>
+                <br><br>
+    
+                <!-- Contact Information -->
+                <fieldset>
+                    <legend>Contact Information</legend>
+                    <label for="surrogate-email">Email:</label>
+                    <input type="email" id="surrogate-email" name="surrogate-email" required>
+                    <br><br>
+                    <label for="surrogate-phone">Phone:</label>
+                    <input type="tel" id="surrogate-phone" name="surrogate-phone" required>
+                    <br><br>
+                    <label for="surrogate-address">Address:</label>
+                    <textarea id="surrogate-address" name="surrogate-address" rows="3" required></textarea>
+                    <br><br>
+                    <label for="surrogate-profession">Profession:</label>
+                    <input type="text" id="surrogate-profession" name="surrogate-profession" required>
+                </fieldset>
+                <br>
+    
+                <!-- Reason for Being a Surrogate -->
+                <label for="reason-surrogate">Reason for Wanting to Be a Surrogate:</label>
+                <textarea id="reason-surrogate" name="reason-surrogate" rows="4" required></textarea>
+                <br><br>
+    
+                <!-- Physical and Medical Information -->
+                <fieldset>
+                    <legend>Physical and Medical Information</legend>
+                    <label for="height">Height:</label>
+                    <input type="number" id="height" name="height" step="0.01" placeholder="e.g., 5.6" required>
+                    <br><br>
+                    <label for="weight">Weight:</label>
+                    <input type="number" id="weight" name="weight" step="0.1" placeholder="e.g., 130.5" required>
+                    <br><br>
+                    <label for="medical-history">Medical History (any disability):</label>
+                    <textarea id="medical-history" name="medical-history" rows="4"></textarea>
+                    <br><br>
+                    <label for="age">Age:</label>
+                    <input type="number" id="age" name="age" required>
+                </fieldset>
+                <br>
+    
+                <!-- Previous Surrogacy Experience -->
+                <label for="surrogate-before">Have You Been a Surrogate Before?</label>
+                <select id="surrogate-before" name="surrogate-before" onchange="toggleSurrogacyDetails()">
+                    <option value="No">No</option>
+                    <option value="Yes">Yes</option>
+                </select>
+                <br><br>
+    
+                <div id="surrogacy-details" style="display:none;">
+                    <label for="surrogate-times">If Yes, How Many Times?</label>
+                    <input type="number" id="surrogate-times" name="surrogate-times">
+                    <br><br>
+                </div>
+    
+                <div id="mother-details" style="display:none;">
+                    <label for="mother">Are You a Mother?</label>
+                    <input type="number" id="mother" name="mother">
+                    <br><br>
+                </div>
+    
+                <!-- Criminal Record -->
+                <label for="criminal-record">Any Criminal Record?</label>
+                <select id="criminal-record" name="criminal-record" onchange="toggleCriminalRecordDetails()">
+                    <option value="No">No</option>
+                    <option value="Yes">Yes</option>
+                </select>
+                <br><br>
+    
+                <div id="criminal-details" style="display:none;">
+                    <label for="criminal-details-text">If Yes, Please Provide Details:</label>
+                    <textarea id="criminal-details-text" name="criminal-details-text" rows="4"></textarea>
+                    <br><br>
+                </div>
+    
+                <!-- Additional Information -->
+                <label for="additional-info">Anything Else You Want the Parents to Know or Ask:</label>
+                <textarea id="additional-info" name="additional-info" rows="4"></textarea>
+                <br><br>
+    
+                <input type="submit" value="Submit">
+            </form>
         </div>
-    </div>
-
-    <script src="scripts/script.js"></script>
-</body>
-</html>
+    
+        <script>
+            function toggleSurrogacyDetails() {
+                var surrogateBefore = document.getElementById('surrogate-before').value;
+                if (surrogateBefore === 'Yes') {
+                    document.getElementById('surrogacy-details').style.display = 'block';
+                    document.getElementById('mother-details').style.display = 'none';
+                } else {
+                    document.getElementById('surrogacy-details').style.display = 'none';
+                    document.getElementById('mother-details').style.display = 'block';
+                }
+            }
+    
+            function toggleCriminalRecordDetails() {
+                var criminalRecord = document.getElementById('criminal-record').value;
+                if (criminalRecord === 'Yes') {
+                    document.getElementById('criminal-details').style.display = 'block';
+                } else {
+                    document.getElementById('criminal-details').style.display = 'none';
+                }
+            }
+        </script>
+    
+    </body>
+    </html>
+    
